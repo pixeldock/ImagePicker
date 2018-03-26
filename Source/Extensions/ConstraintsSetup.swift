@@ -31,7 +31,7 @@ extension BottomContainerView {
         relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,
         multiplier: 1, constant: ButtonPicker.Dimensions.buttonBorderSize))
 
-      addConstraint(NSLayoutConstraint(item: stackView, attribute: attribute,
+      addConstraint(NSLayoutConstraint(item: galleryButton, attribute: attribute,
         relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,
         multiplier: 1, constant: ImageStackView.Dimensions.imageSize))
     }
@@ -40,7 +40,7 @@ extension BottomContainerView {
       relatedBy: .equal, toItem: self, attribute: .centerY,
       multiplier: 1, constant: 0))
 
-    addConstraint(NSLayoutConstraint(item: stackView, attribute: .centerY,
+    addConstraint(NSLayoutConstraint(item: galleryButton, attribute: .centerY,
       relatedBy: .equal, toItem: self, attribute: .centerY,
       multiplier: 1, constant: -2))
 
@@ -50,9 +50,9 @@ extension BottomContainerView {
       relatedBy: .equal, toItem: self, attribute: .right,
       multiplier: 1, constant: -(screenSize.width - (ButtonPicker.Dimensions.buttonBorderSize + screenSize.width)/2)/2))
 
-    addConstraint(NSLayoutConstraint(item: stackView, attribute: .centerX,
+    addConstraint(NSLayoutConstraint(item: galleryButton, attribute: .centerX,
       relatedBy: .equal, toItem: self, attribute: .left,
-      multiplier: 1, constant: screenSize.width/4 - ButtonPicker.Dimensions.buttonBorderSize/3))
+      multiplier: 1, constant: screenSize.width/4 - 12))
 
     addConstraint(NSLayoutConstraint(item: topSeparator, attribute: .height,
       relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,

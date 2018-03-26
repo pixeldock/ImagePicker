@@ -332,7 +332,6 @@ open class ImagePickerController: UIViewController {
   func enableGestures(_ enabled: Bool) {
     galleryView.alpha = enabled ? 1 : 0
     bottomContainer.pickerButton.isEnabled = enabled
-    bottomContainer.tapGestureRecognizer.isEnabled = enabled
     topView.flashButton.isEnabled = enabled
     topView.rotateCamera.isEnabled = configuration.canRotateCamera
   }
@@ -345,7 +344,6 @@ open class ImagePickerController: UIViewController {
     guard isBelowImageLimit() && !isTakingPicture else { return }
     isTakingPicture = true
     bottomContainer.pickerButton.isEnabled = false
-    bottomContainer.stackView.startLoader()
     let action: () -> Void = { [weak self] in
       guard let `self` = self else { return }
       self.cameraController.takePicture { self.isTakingPicture = false }
@@ -444,7 +442,7 @@ extension ImagePickerController: CameraViewDelegate {
 
     UIView.animate(withDuration: 0.25, animations: {
       [self.topView.rotateCamera, self.bottomContainer.pickerButton,
-       self.bottomContainer.stackView, self.bottomContainer.doneButton].forEach {
+       self.bottomContainer.galleryButton, self.bottomContainer.doneButton].forEach {
         $0.transform = rotate
       }
 

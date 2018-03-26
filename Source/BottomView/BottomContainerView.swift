@@ -44,20 +44,13 @@ open class BottomContainerView: UIView {
     return button
     }()
 
-  lazy var stackView = ImageStackView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
+    let galleryButton = UIButton(type: .custom)
 
   lazy var topSeparator: UIView = { [unowned self] in
     let view = UIView()
     view.backgroundColor = self.configuration.backgroundColor
 
     return view
-    }()
-
-  lazy var tapGestureRecognizer: UITapGestureRecognizer = { [unowned self] in
-    let gesture = UITapGestureRecognizer()
-    gesture.addTarget(self, action: #selector(handleTapGestureRecognizer(_:)))
-
-    return gesture
     }()
 
   weak var delegate: BottomContainerViewDelegate?
@@ -78,14 +71,15 @@ open class BottomContainerView: UIView {
   }
 
   func configure() {
-    [borderPickerButton, pickerButton, doneButton, stackView, topSeparator].forEach {
+    [borderPickerButton, pickerButton, doneButton, galleryButton, topSeparator].forEach {
       addSubview($0)
       $0.translatesAutoresizingMaskIntoConstraints = false
     }
 
     backgroundColor = configuration.backgroundColor
-    stackView.accessibilityLabel = "Image stack"
-    stackView.addGestureRecognizer(tapGestureRecognizer)
+    
+    galleryButton.setImage(AssetManager.getImage("gallery"), for: .normal)
+    galleryButton.addTarget(self, action: #selector(didPressGalleryButton), for: .touchUpInside)
 
     setupConstraints()
   }
@@ -99,10 +93,10 @@ open class BottomContainerView: UIView {
       delegate?.doneButtonDidPress()
     }
   }
-
-  @objc func handleTapGestureRecognizer(_ recognizer: UITapGestureRecognizer) {
-    delegate?.imageStackViewDidPress()
-  }
+    
+    @objc func didPressGalleryButton(_ button: UIButton) {
+        delegate?.imageStackViewDidPress()
+    }
 
   fileprivate func animateImageView(_ imageView: UIImageView) {
     imageView.transform = CGAffineTransform(scaleX: 0, y: 0)

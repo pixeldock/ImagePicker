@@ -2,7 +2,7 @@ PODS:
   - Cache (4.0.2):
     - SwiftHash (~> 2.0.0)
   - Hue (3.0.0)
-  - ImagePicker (3.0.0)
+  - ImagePicker (3.1.0)
   - Imaginary (3.0.0):
     - Cache (~> 4.0)
   - Lightbox (2.0.0):
@@ -22,7 +22,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Cache: 363b6899cee63c82ccbd291e64a6c202abc17a88
   Hue: b8fe1e43eef13631331eebecb2198b68e2622f95
-  ImagePicker: f8a3ce52e587b55f58aef2d83d894ed6f7820f51
+  ImagePicker: db1fd7626337b2577c523bef5f499bbbe5a37079
   Imaginary: 2765d293d425cbed3b07fa11642554cbaebe913d
   Lightbox: 83ec9f4aba4c79fc7bb9bcd263386df9969f09bb
   SwiftHash: d2e09b13495447178cdfb8e46e54a5c46f15f5a9
