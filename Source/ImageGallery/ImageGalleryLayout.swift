@@ -21,9 +21,9 @@ class ImageGalleryLayout: UICollectionViewFlowLayout {
     var newAttributes = [UICollectionViewLayoutAttributes]()
     for attribute in attributes {
       // swiftlint:disable force_cast
-      let n = attribute.copy() as! UICollectionViewLayoutAttributes
-      n.transform = configuration.rotationTransform
-      newAttributes.append(n)
+      let newAttribute = attribute.copy() as! UICollectionViewLayoutAttributes
+      newAttribute.transform = configuration.rotationTransform
+      newAttributes.append(newAttribute)
     }
 
     return newAttributes
